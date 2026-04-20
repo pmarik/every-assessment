@@ -9,8 +9,11 @@ export const donationStatusSchema = z.enum([
   "failure",
 ]);
 
+const UUID_FORMAT =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 export const createDonationSchema = z.object({
-  uuid: z.string().uuid(),
+  uuid: z.string().regex(UUID_FORMAT, "Invalid UUID format"),
   amount: z.number().int().nonnegative(),
   currency: z.literal("USD"),
   paymentMethod: paymentMethodSchema,
