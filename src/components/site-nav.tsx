@@ -10,7 +10,7 @@ export function SiteNav() {
             className="inline-block size-2.5 rounded-full bg-accent"
           />
           <span className="font-heading text-base font-semibold tracking-tight">
-            Donations Dashboard
+            Dashboard
           </span>
         </Link>
       </div>
