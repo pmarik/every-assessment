@@ -40,7 +40,7 @@ export function DonationTable({ donations }: DonationTableProps) {
         </TableHeader>
         <TableBody>
           {donations.map((donation) => (
-            <TableRow key={donation.uuid}>
+            <TableRow key={donation.uuid} className="[&>td]:py-3">
               <TableCell className="pl-4 text-muted-foreground">
                 {formatIsoDate(donation.createdAt)}
               </TableCell>
