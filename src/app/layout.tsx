@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Toaster } from "@/components/ui/sonner";
 import { SiteNav } from "@/components/site-nav";
 import "./globals.css";
@@ -35,13 +36,15 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <SiteNav />
-        <main className="flex-1 w-full">
-          <div className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-            {children}
-          </div>
-        </main>
-        <Toaster richColors position="top-right" />
+        <NuqsAdapter>
+          <SiteNav />
+          <main className="flex-1 w-full">
+            <div className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+              {children}
+            </div>
+          </main>
+          <Toaster richColors position="bottom-right" />
+        </NuqsAdapter>
       </body>
     </html>
   );
